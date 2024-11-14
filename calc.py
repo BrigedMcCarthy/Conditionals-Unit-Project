@@ -1,17 +1,28 @@
-#Python calculator
-#Briged McCarthy 2024
+# Python calculator
+# Briged McCarthy 2024
 
 # Number input and operation input
-num1 = int(input("Type the first number for your equation: "))
-num2 = int(input("Type the second number for your equation: "))
-operation = int(input("Choose your operation (addition(1), subtraction(2), multiplication(3), division(4): "))
+num1 = float(input("Type the first number for your equation: "))
+num2 = float(input("Type the second number for your equation: "))
+operation = int(input("Choose your operation (1: addition, 2: subtraction, 3: multiplication, 4: division): "))
 
-# Basic calculator program
-if operation == 1:
-    print(num1 + num2)
-if operation == 2:
-    print(num1 - num2)
-if operation == 3:
-    print(num1 * num2)
-if operation == 4:
-    print(num1 / num2)
+# Check if operation is valid using a Boolean
+valid_operation = (operation >= 1 and operation <= 4)
+
+if valid_operation:
+    # Perform the operation based on user input
+    if operation == 1:
+        result = num1 + num2
+    elif operation == 2:
+        result = num1 - num2
+    elif operation == 3:
+        result = num1 * num2
+    elif operation == 4:
+        if num2 != 0:
+            result = num1 / num2
+        else:
+            result = "You cannot divide by zero!"
+    
+    print("Result: " + str(result))
+else:
+    print("Please choose 1, 2, 3, or 4.")
